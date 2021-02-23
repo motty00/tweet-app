@@ -57,8 +57,33 @@
   height: 20vh;
 }
 .tweet-main {
-  background-color: greenyellow;
+  background-color: #fafafa;
   height: calc(100vh - 20vh);
+  width: calc(100vw - 300px);
   overflow: scroll;
+}
+
+.post a {
+  font-size: 40px;
+  color: #fafafa;
+  text-decoration: none;
+  text-align: center;
+}
+
+.tweet-text {
+  border: double 5px #4ec4d3;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 30px;
+  border-radius: 10px;
+  background: #6eb7ff;
+  word-wrap: break-word;
+}
+
+.name-id {
+  color: #fafafa;
+  border-bottom: solid 1px black;
+}
+.text-id {
 
 }

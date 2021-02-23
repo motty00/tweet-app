@@ -18,9 +18,25 @@
 
   <div class="tweet-container">
     <div class="tweet-header">
+      <div class="post">
+        <%= link_to "新規投稿", "" %>
+      </div>
     </div>
+
+
     <div class="tweet-main">
-    
+      <% @tweets.each do |tweet| %>
+        <div class="chat-content">
+          <div class="tweet-text">
+            <div class="name-id">
+              <%= tweet.id %>
+            </div>
+            <div class="text-id">
+              <%= tweet.text %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
