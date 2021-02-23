@@ -1,3 +1,64 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.side-container {
+  width: 300px;
+  background-color: #253141;
+}
+.side-header {
+  height: 20vh;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name a {
+  font-size: 30px;
+  color: #fafafa;
+  text-decoration: none;
+}
+.name {
+  margin: auto;
+}
+.log a {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+.side-list {
+  background-color: #2f3e51;
+  height: calc(100vh - 20vh);
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+
+
+
+
+.tweet-container {
+  width: calc(100vw - 300px);
+  height: 100vh;
+}
+.tweet-header {
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: grey;
+  height: 20vh;
+}
+.tweet-main {
+  background-color: greenyellow;
+  height: calc(100vh - 20vh);
+  overflow: scroll;
+
+}
