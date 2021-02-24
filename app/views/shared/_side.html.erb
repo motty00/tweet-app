@@ -1,5 +1,8 @@
   <div class="side-container">
     <div class="side-header">
+      <%= link_to root_path do %>
+        <span class="fa fa-twitter"></span> 
+      <% end %>
       <div class="name">
         <% if user_signed_in? %>
           <%= link_to current_user.nickname, "/users/#{current_user.id}" %>
