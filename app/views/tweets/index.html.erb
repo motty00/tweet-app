@@ -1,7 +1,5 @@
 <div class="wrapper">
-
   <%= render "shared/side" %>
-
   <div class="tweet-container">
     <div class="tweet-header">
       <div class="post">
@@ -12,14 +10,12 @@
 
     <div class="tweet-main">
       <% @tweets.each do |tweet| %>
-        <div class="chat-content">
-          <div class="tweet-text">
-            <div class="name-id">
-              <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
-            </div>
-            <div class="text-id">
-              <%= link_to tweet.text, tweet_path(tweet.id) %>
-            </div>
+        <div class="tweet-text">
+          <div class="name-id">
+            <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
+          </div>
+          <div class="text-id">
+            <%= link_to tweet.text, tweet_path(tweet.id) %>
           </div>
         </div>
       <% end %>
