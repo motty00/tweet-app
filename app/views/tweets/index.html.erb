@@ -33,16 +33,18 @@
 
     <div class="tweet-main">
       <% @tweets.each do |tweet| %>
-        <div class="chat-content">
-          <div class="tweet-text">
-            <div class="name-id">
-              <%= tweet.id %>
-            </div>
-            <div class="text-id">
-              <%= tweet.text %>
+        <% @users.each do |user| %>
+          <div class="chat-content">
+            <div class="tweet-text">
+              <div class="name-id">
+                <%= user.nickname %>
+              </div>
+              <div class="text-id">
+                <%= tweet.text %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
