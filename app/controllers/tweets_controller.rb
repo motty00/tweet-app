@@ -11,11 +11,11 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.create(tweet_params)
+    tweet = Tweet.new(tweet_params)
     if tweet.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_tweet_path
     end
   end
 
