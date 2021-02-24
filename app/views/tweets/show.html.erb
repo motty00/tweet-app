@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="chat-content">
+    <div class="tweet-text">
+      <div class="name-id">
+        <%= @tweet.user.nickname %>
+      </div>
+      <div class="text-id">
+        <%= @tweet.text %>
+      </div>
+    </div>
+
+    <% if current_user.id == @tweet.user_id %>
+      <div class="edit">
+        <%= link_to "編集", "" %>
+      </div>
+      <div class="edit">
+        <%= link_to "削除", "" %>
+      </div>
+    <% end %>
+  </div>
+</div>
