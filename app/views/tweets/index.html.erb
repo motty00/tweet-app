@@ -3,7 +3,7 @@
     <div class="side-header">
       <div class="name">
         <% if user_signed_in? %>
-          <%= link_to current_user.nickname, "" %>
+          <%= link_to current_user.nickname, "/users/#{current_user.id}" %>
         <% else %>
           <%= link_to "ログイン画面へ", new_user_session_path %>
         <% end %>
