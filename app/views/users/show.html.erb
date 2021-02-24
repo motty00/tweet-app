@@ -1,1 +1,29 @@
-<h1>マイページ</h1>
+<div class="container">
+  <div class="header">
+    <div class="user-name">
+      <%= @nickname %>
+    </div>
+    <div class="user-introduction">
+      <%= @introduction %>
+    </div>
+  </div>
+
+  <div class="main">
+    <% @tweets.each do |tweet| %>
+      <% if tweet.user_id == @user.id %>
+        <div class="chat-content">
+          <div class="tweet-text">
+            <div class="name-id">
+              <%= tweet.user.nickname %>
+            </div>
+            <div class="text-id">
+              <%= tweet.text %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

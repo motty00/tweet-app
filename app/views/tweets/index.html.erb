@@ -35,7 +35,7 @@
         <div class="chat-content">
           <div class="tweet-text">
             <div class="name-id">
-              <%= tweet.user.nickname %>
+              <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
             </div>
             <div class="text-id">
               <%= tweet.text %>
