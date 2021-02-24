@@ -2,15 +2,22 @@
   <div class="side-container">
     <div class="side-header">
       <div class="name">
-        <%= link_to "hoge", "" %>
+        <% if user_signed_in? %>
+          <%= link_to current_user.nickname, "" %>
+        <% else %>
+          <%= link_to "ログイン画面へ", new_user_session_path %>
+        <% end %>
       </div>
     </div>
 
     <div class="side-list">
       <div class="log">
-        <%= link_to "ログイン", "" %><br>
-        <%= link_to "ログアウト", "" %><br>
-        <%= link_to "新規登録", "" %>
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path %><br>
+          <%= link_to "新規登録", new_user_registration_path %>
+        <% end %>
       </div>
     </div>
   </div>
