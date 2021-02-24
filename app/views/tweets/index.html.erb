@@ -38,7 +38,7 @@
               <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
             </div>
             <div class="text-id">
-              <%= tweet.text %>
+              <%= link_to tweet.text, tweet_path(tweet.id) %>
             </div>
           </div>
         </div>
