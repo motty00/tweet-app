@@ -36,9 +36,22 @@
 }
 .side-list {
   background-color: #2f3e51;
-  height: calc(100vh - 20vh);
+  height: 65vh;
   padding: 0 20px;
   overflow: scroll;
+}
+.side-footer {
+  background-color: blue;
+  height: calc(100vh - 20vh - 65vh);
+}
+.follow a {
+  color: #fafafa;
+  font-size: 30px;
+  text-decoration: none;
+}
+.follow {
+  color: #fafafa;
+  font-size: 20px;
 }
 
 
