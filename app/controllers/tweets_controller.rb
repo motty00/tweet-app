@@ -1,12 +1,10 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :like_params, only: [:index, :show, :new]
 
   def index
     @tweets = Tweet.all.order('created_at desc')
     @users = User.all
-    if user_signed_in? 
-      @likes = Like.where(user_id: current_user.id).count
-    end
   end
 
   def new
@@ -48,6 +46,12 @@ class TweetsController < ApplicationController
   private
   def tweet_params
     params.require(:tweet).permit(:text).merge(user_id: current_user.id)
+  end
+
+  def like_params
+    if user_signed_in? 
+      @likes = Like.where(user_id: current_user.id).count
+    end
   end
 
 
