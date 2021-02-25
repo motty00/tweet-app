@@ -143,3 +143,23 @@
   font-size: 50px;
   color: #6eb7ff;
 }
+
+.sign-in {
+  width: 60%;
+  height: 100vh;
+  margin: auto;
+  background-color: lightgray;
+  border-left: dotted 2px black;
+  border-right: dotted 2px black;
+}
+.form-wrap {
+  text-align: center;
+  padding-top: 50px;
+}
+.input-default {
+  width: 40%;
+  height: 30px;
+}
+.login-btn {
+  margin-top: 20px;
+}
