@@ -9,4 +9,8 @@ class LikesController < ApplicationController
     redirect_to root_path
   end
 
+
+  def index
+    @likes = Like.find_by(user_id: current_user.id)
+  end
 end

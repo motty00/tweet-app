@@ -4,6 +4,9 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all.order('created_at desc')
     @users = User.all
+    if user_signed_in? 
+      @likes = Like.where(user_id: current_user.id).count
+    end
   end
 
   def new
