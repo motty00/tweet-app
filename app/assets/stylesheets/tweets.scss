@@ -114,6 +114,7 @@
   height: 100vh;
   width: calc(100vw - 300px);
   position: relative;
+  overflow: scroll;
 }
 .header {
   background-color: wheat;
@@ -195,4 +196,11 @@
 
 .unlike-btn {
   color: red;
+}
+
+.fav {
+  background-color: aqua;
+  height: 120px;
+  font-size: 30px;
+  padding: 40px;
 }
