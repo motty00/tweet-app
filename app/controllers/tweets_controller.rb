@@ -22,6 +22,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @like = Like.where(tweet_id: params[:id])
   end
 
   def edit
