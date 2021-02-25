@@ -116,7 +116,7 @@
   position: relative;
 }
 .header {
-  background-color: red;
+  background-color: wheat;
   height: 35vh;
 }
 .user-name {
@@ -178,4 +178,13 @@
 .input-introduction {
   width: 70%;
   height: 100px;
+}
+
+.text-input {
+  width: 50%;
+}
+.new-container {
+  width: calc(100vw - 300px);
+  height: 100vh;
+  margin-left: 20px;
 }
