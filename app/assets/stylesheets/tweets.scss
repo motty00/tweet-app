@@ -112,30 +112,31 @@
 
 .container {
   height: 100vh;
-  width: 80%;
-  margin: auto;
+  width: calc(100vw - 300px);
   position: relative;
 }
 .header {
   background-color: red;
-  height: 40vh;
+  height: 35vh;
 }
 .user-name {
   font-size: 30px;
   position: absolute;
-  top: 80px;
-  left: 200px;
+  top: 30px;
+  left: 150px;
 }
 .user-introduction {
   position: absolute;
-  top: 120px;
-  left: 100px;
+  top: 70px;
   border: solid 1px black;
+  border-radius: 10px;
   margin: 30px;
+  padding: 10px;
+  overflow: scroll;
 }
 .main {
-  background-color: blue;
-  height: calc(100vh - 40vh);
+  background-color: skyblue;
+  height: calc(100vh - 35vh);
   overflow: scroll;
 }
 .fa {
