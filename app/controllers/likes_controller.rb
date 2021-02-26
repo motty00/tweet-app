@@ -26,7 +26,7 @@ class LikesController < ApplicationController
 
   def like_params
     if user_signed_in? 
-      @likes = Like.where(user_id: current_user.id).count
+      @likes = Like.where(user_id: current_user.id)
     end
   end
 

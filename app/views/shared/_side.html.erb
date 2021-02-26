@@ -21,7 +21,7 @@
           <%= link_to "フォロワー", "" %><br>
           <p>○人</p>
           <%= link_to "お気に入り", like_path(current_user) %><br>
-          <%= @likes %>
+          <%= @likes.count %>
         <% end %>
       </div>
     </div>
