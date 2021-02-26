@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :like_params, only: [:index, :show, :new]
+  before_action :like_params, only: [:index, :show, :new, :edit]
 
   def index
     @tweets = Tweet.all.order('created_at desc')
