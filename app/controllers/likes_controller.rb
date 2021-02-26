@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
   before_action :like_params, only: [:show]
-  before_action :tweet_params
+  before_action :tweet_params, except: [:show]
 
   def create
     Like.create(user_id: current_user.id, tweet_id: params[:id])
