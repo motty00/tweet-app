@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <%= render "shared/side" %>
+  <div class="container"> 
+    <div class="fav">
+      <%= "#{current_user.nickname}さんのお気に入り一覧" %>
+    </div>
+    <% @tweets.each do |tweet| %>
+      <div class="tweet-text">
+        <div class="name-id">
+          <%= tweet.user.nickname %>
+        </div>
+        <div class="text-id">
+          <%= tweet.text %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

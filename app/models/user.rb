@@ -18,6 +18,11 @@ class User < ApplicationRecord
     end
   end
 
-  has_many :tweets
-  has_many :likes
+  has_many :tweets, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
+  def liked_by?(tweet_id)
+    likes.where(tweet_id: tweet_id).exists?
+  end
+
 end

@@ -6,7 +6,10 @@
         <%= @tweet.user.nickname %>
       </div>
       <div class="text-id">
-        <%= @tweet.text %>
+        <%= @tweet.text %><br>
+        <div class="likes">
+          <%= "#{@like.count}件のお気に入り" %>
+        </div>
       </div>
     </div>
 

@@ -114,6 +114,7 @@
   height: 100vh;
   width: calc(100vw - 300px);
   position: relative;
+  overflow: scroll;
 }
 .header {
   background-color: wheat;
@@ -139,7 +140,7 @@
   height: calc(100vh - 35vh);
   overflow: scroll;
 }
-.fa {
+.fa-twitter {
   font-size: 50px;
   color: #6eb7ff;
 }
@@ -187,4 +188,24 @@
   width: calc(100vw - 300px);
   height: 100vh;
   margin-left: 20px;
+}
+
+.like-btn {
+  color: #fafafa;
+}
+
+.unlike-btn {
+  color: red;
+}
+
+.fav {
+  background-color: aqua;
+  height: 120px;
+  font-size: 30px;
+  padding: 40px;
+}
+
+.likes {
+  font-size: 20px;
+  margin-top: 15px;
 }
