@@ -1,0 +1,1 @@
+document.getElementById('tweet_<%= @tweet.id %>').innerHTML = ("<%= j(render partial: 'tweets/index', locals: {tweet: @tweet}) %>");

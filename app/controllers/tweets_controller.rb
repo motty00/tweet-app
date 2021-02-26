@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :like_params, only: [:index, :show, :new]
+  before_action :like_params, only: [:index, :show, :new, :edit]
 
   def index
     @tweets = Tweet.all.order('created_at desc')
@@ -51,7 +51,7 @@ class TweetsController < ApplicationController
 
   def like_params
     if user_signed_in? 
-      @likes = Like.where(user_id: current_user.id).count
+      @likes = Like.where(user_id: current_user.id)
     end
   end
 

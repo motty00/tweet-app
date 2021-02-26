@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <% if current_user.liked_by?(tweet.id) %>
+    <%= link_to destroy_like_path(tweet), method: :DELETE, remote: true do %>
+      <span class="fa fa-heart unlike-btn"></span>
+     <% end %>
+  <% else %>
+    <%= link_to create_like_path(tweet), method: :POST, remote: true do %>
+      <span class="fa fa-heart like-btn"></span> 
+    <% end %>
+  <% end %>
+  <%= tweet.likes.count %>
+<%end%>

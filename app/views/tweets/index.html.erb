@@ -7,7 +7,6 @@
       </div>
     </div>
 
-
     <div class="tweet-main">
       <% @tweets.each do |tweet| %>
         <div class="tweet-text">
@@ -16,21 +15,9 @@
           </div>
           <div class="text-id">
             <%= link_to tweet.text, tweet_path(tweet.id) %><br>
-
-            <% if user_signed_in? %>
-              <% if current_user.liked_by?(tweet.id) %>
-                <%= link_to destroy_like_path(tweet), method: :DELETE do %>
-                  <span class="fa fa-heart unlike-btn"></span> 
-                <% end %>
-              <% else %>
-                <%= link_to create_like_path(tweet), method: :POST do %>
-                  <span class="fa fa-heart like-btn"></span> 
-                <% end %>
-              <% end %>
-              <%= tweet.likes.count %>
-            <%end%>
-
-
+            <div id="tweet_<%= tweet.id %>">
+            <%= render "index", tweet: tweet %>
+          </div>
 
           </div>
         </div>
