@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
   before_action :like_params, only: [:show]
 
   def create
@@ -18,7 +19,7 @@ class LikesController < ApplicationController
   def show
     likes = Like.where(user_id: current_user.id)
     like = likes.select(:tweet_id)
-    @tweets = Tweet.where(id: like).order('created_at desc')
+    @tweets = Tweet.where(id: like)
   end
 
 
