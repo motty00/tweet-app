@@ -21,8 +21,9 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+
   def liked_by?(tweet_id)
-    likes.where(tweet_id: tweet_id).exists?
+    likes.where(tweet_id: tweet_id).exists? #likesテーブルにtweet_idが存在するか検索をかけている
   end
 
 end
