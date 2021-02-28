@@ -1,12 +1,16 @@
 <% if user_signed_in? %>
+  <!--liked_by?(tweet.id)でお気に入りを登録しているか判別している-->
   <% if current_user.liked_by?(tweet.id) %>
+    <!--お気に入りを登録されていたら以下を表示-->
     <%= link_to destroy_like_path(tweet), method: :DELETE, remote: true do %>
       <span class="fa fa-heart unlike-btn"></span>
      <% end %>
   <% else %>
+    <!--お気に入りを登録されていなかったら以下を表示-->
     <%= link_to create_like_path(tweet), method: :POST, remote: true do %>
       <span class="fa fa-heart like-btn"></span> 
     <% end %>
   <% end %>
+  <!--お気に入りを登録された回数を表示-->
   <%= tweet.likes.count %>
 <%end%>
