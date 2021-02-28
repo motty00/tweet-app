@@ -5,6 +5,7 @@
       <div class="user-name">
         <%= "#{@nickname}さんのマイページ" %>
       </div>
+      <!--自己紹介文を表示-->
       <div class="user-introduction">
         <%= @introduction %>
       </div>
@@ -12,12 +13,15 @@
 
     <div class="main">
       <% @tweets.each do |tweet| %>
+        <!--投稿した内容のIDとユーザーIDが一致しているものだけ表示（自分の投稿のみ表示）-->
         <% if tweet.user_id == @user.id %>
           <div class="chat-content">
             <div class="tweet-text">
+              <!--ユーザー名の表示-->
               <div class="name-id">
                 <%= tweet.user.nickname %>
               </div>
+              <!--投稿内容の表示-->
               <div class="text-id">
                 <%= tweet.text %>
               </div>
