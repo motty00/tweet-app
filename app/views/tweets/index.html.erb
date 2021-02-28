@@ -1,4 +1,5 @@
 <div class="wrapper">
+  <!--サイドバーの読み込み-->
   <%= render "shared/side" %>
   <div class="tweet-container">
     <div class="tweet-header">
@@ -10,15 +11,17 @@
     <div class="tweet-main">
       <% @tweets.each do |tweet| %>
         <div class="tweet-text">
+          <!--投稿ユーザー名の表示-->
           <div class="name-id">
             <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
           </div>
+            <!--投稿内容の表示-->
           <div class="text-id">
             <%= link_to tweet.text, tweet_path(tweet.id) %><br>
-            <div id="tweet_<%= tweet.id %>">
+          <div id="tweet_<%= tweet.id %>">
+            <!--お気に入りボタンの表示-->
             <%= render "index", tweet: tweet %>
           </div>
-
           </div>
         </div>
       <% end %>

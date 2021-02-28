@@ -1,18 +1,23 @@
 <div class="wrapper">
+  <!--サイドバーの読み込み-->
   <%= render "shared/side" %>
   <div class="tweet-container">
     <div class="tweet-text">
+      <!--ユーザー名の表示-->
       <div class="name-id">
         <%= @tweet.user.nickname %>
       </div>
+      <!--投稿内容の表示-->
       <div class="text-id">
         <%= @tweet.text %><br>
+        <!--お気に入りに登録された回数を表示-->
         <div class="likes">
           <%= "#{@like.count}件のお気に入り" %>
         </div>
       </div>
     </div>
 
+    <!--投稿したユーザーなら編集ボタンを削除ボタンを表示-->
     <% if current_user.id == @tweet.user_id %>
       <div class="edit">
         <%= link_to "編集", edit_tweet_path %>
