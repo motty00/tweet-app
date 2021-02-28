@@ -5,6 +5,7 @@
         <span class="fa fa-twitter"></span> 
       <% end %>
       <div class="name">
+        <!--ログイン状態であればユーザー名を表示、ログアウト状態はログインページへのリンク-->
         <% if user_signed_in? %>
           <%= link_to current_user.nickname, "/users/#{current_user.id}" %>
         <% else %>
@@ -21,6 +22,7 @@
           <%= link_to "フォロワー", "" %><br>
           <p>○人</p>
           <%= link_to "お気に入り", like_path(current_user) %><br>
+          <!--ログインユーザーが登録しているお気に入りの数を表示-->
           <%= @likes.count %>
         <% end %>
       </div>
@@ -28,6 +30,7 @@
 
     <div class="side-footer">
       <div class="log">
+        <!--ログイン状態であればログアウトのリンク、ログアウト状態であれば新規登録ページへのリンク-->
         <% if user_signed_in? %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>

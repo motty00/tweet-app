@@ -1,9 +1,9 @@
 <div class="wrapper">
+  <!--サイドバーの読み込み-->
   <%= render "shared/side" %>
   <div class="content-edit">
       <h3>編集する</h3>
       <%= form_with(model: @tweet, local: true) do |f| %>
-        <%#= form.text_field :image, placeholder: "Image Url" %>
         <%= f.text_area :text, placeholder: "text", size: "70 x 5" %>
         <%= f.submit "更新" %>
       <% end %>
