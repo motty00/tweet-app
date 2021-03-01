@@ -5,14 +5,16 @@ class LikesController < ApplicationController
 
   def create
     Like.create(user_id: current_user.id, tweet_id: params[:id]) #ユーザーIDがログイン中のユーザー、投稿IDが選択した投稿IDのお気に入りを追加
+    @likes = Like.where(user_id: current_user.id)
   end
 
   def destroy
     Like.find_by(user_id: current_user.id, tweet_id: params[:id]).destroy #ユーザーIDがログイン中のユーザー、投稿IDが選択した投稿IDのお気に入りを削除
+    @likes = Like.where(user_id: current_user.id)
   end
 
   def index
-    @likes = Like.find_by(user_id: current_user.id) #likesテーブルからuser_idがログインユーザーIDのデータを取得
+    @likes = Like.where(user_id: current_user.id) #likesテーブルからuser_idがログインユーザーIDのデータを取得
   end
 
   def show

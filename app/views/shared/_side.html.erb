@@ -23,7 +23,9 @@
           <p>○人</p>
           <%= link_to "お気に入り", like_path(current_user) %><br>
           <!--ログインユーザーが登録しているお気に入りの数を表示-->
-          <%= @likes.count %>
+          <div id = "counts">
+            <%= @likes.count %>
+          </div>
         <% end %>
       </div>
     </div>
