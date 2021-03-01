@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :find_params, only: [:show, :edit]
-  before_action :like_params, only: [:index, :show, :new, :edit]
+  before_action :set_find, only: [:show, :edit]
+  before_action :set_like, only: [:index, :show, :new, :edit]
   before_action :move_to_index, except: [:index, :show, :edit, :update, :create, :destroy]
 
   def index
@@ -54,11 +54,11 @@ class TweetsController < ApplicationController
     params.require(:tweet).permit(:text).merge(user_id: current_user.id)
   end
 
-  def find_params
+  def set_find
     @tweet = Tweet.find(params[:id]) # 特定の投稿IDを取得
   end
 
-  def like_params
+  def set_like
     @likes = Like.where(user_id: current_user.id) if user_signed_in? # ユーザーがログイン状態なら自分がお気に入りに追加した投稿を取得する
   end
 

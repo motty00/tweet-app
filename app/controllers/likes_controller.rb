@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :like_params, only: [:show]
-  before_action :tweet_params, except: [:show]
+  before_action :set_like, only: [:show]
+  before_action :set_tweet, except: [:show]
 
   def create
     Like.create(user_id: current_user.id, tweet_id: params[:id]) # ユーザーIDがログイン中のユーザー、投稿IDが選択した投稿IDのお気に入りを追加
@@ -23,13 +23,16 @@ class LikesController < ApplicationController
     @tweets = Tweet.where(id: like) # tweetsテーブルからidが変数likeに入っているレコードを取得
   end
 
-  def like_params
+
+  private
+
+  def set_like
     if user_signed_in?
       @likes = Like.where(user_id: current_user.id) # ログイン状態ならlikesテーブルから自分のユーザーIDのレコードを取得
     end
   end
 
-  def tweet_params
+  def set_tweet
     @tweet = Tweet.find(params[:id])
   end
 end
