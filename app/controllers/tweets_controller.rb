@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :like_params, only: [:index, :show, :new, :edit]
+  before_action :find_params, only: [:show, :edit]
 
   def index
     @tweets = Tweet.all.order('created_at desc') #全ての投稿を新しい順に表示
@@ -21,12 +22,10 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id]) #特定の投稿IDを取得
     @like = Like.where(tweet_id: params[:id]) #特定の投稿IDのお気に入りの数を取得
   end
 
   def edit
-    @tweet = Tweet.find(params[:id]) #特定の投稿IDを取得
   end
 
   def update
@@ -47,6 +46,10 @@ class TweetsController < ApplicationController
   private
   def tweet_params
     params.require(:tweet).permit(:text).merge(user_id: current_user.id)
+  end
+
+  def find_params
+    @tweet = Tweet.find(params[:id]) #特定の投稿IDを取得
   end
 
   def like_params
