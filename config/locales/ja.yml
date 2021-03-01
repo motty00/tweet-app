@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        self_introduction: 自己紹介文
+        last_name: 苗字
+        first_name: 名前
+        last_name_kana: ミョウジ
+        first_name_kana: ナマエ
+        password: パスワード 
