@@ -3,9 +3,16 @@
   <%= render "shared/side" %>
   <div class="tweet-container">
     <div class="tweet-header">
-      <div class="post">
-        <%= link_to "新規投稿", new_tweet_path %>
-      </div>
+        <div class="new-container">
+        <% if user_signed_in? %>
+          <h3>新規投稿</h3>
+          <%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
+            <%= form.text_area :text, placeholder: "ツイートしてみよう！", size: "70 x 2" %>
+            <%= form.submit "投稿する" %>
+          <% end %>
+          <% end %>
+        </div>
+
     </div>
 
     <div class="tweet-main">

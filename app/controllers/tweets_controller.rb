@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
     if tweet.save
       redirect_to root_path # 投稿の保存に成功したらトップページに遷移
     else
-      redirect_to new_tweet_path # 保存に失敗したら新規投稿ページに戻る
+      redirect_to root_path
     end
   end
 
@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:text).merge(user_id: current_user.id)
+    params.permit(:text).merge(user_id: current_user.id)
   end
 
   def find_params
