@@ -8,6 +8,6 @@ FactoryBot.define do
     first_name            { Gimei.first.kanji }
     last_name_kana        { Gimei.last.katakana }
     first_name_kana       { Gimei.first.katakana }
-    self_introduction     { Faker::Base.regexify("[a-z]{50}") }
+    self_introduction     { Faker::Base.regexify('[a-z]{50}') }
   end
 end
