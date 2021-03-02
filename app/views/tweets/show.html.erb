@@ -14,17 +14,17 @@
         <div class="likes">
           <%= "#{@like.count}件のお気に入り" %>
         </div>
+        <% if current_user.id == @tweet.user_id %>
+          <div class="edit">
+            <%= link_to "編集", edit_tweet_path %>
+          </div>
+          <div class="delete">
+            <%= link_to "削除", tweet_path, method: :delete %>
+          </div>
+        <% end %>
       </div>
     </div>
 
     <!--投稿したユーザーなら編集ボタンを削除ボタンを表示-->
-    <% if current_user.id == @tweet.user_id %>
-      <div class="edit">
-        <%= link_to "編集", edit_tweet_path %>
-      </div>
-      <div class="edit">
-        <%= link_to "削除", tweet_path, method: :delete %>
-      </div>
-    <% end %>
   </div>
 </div>
