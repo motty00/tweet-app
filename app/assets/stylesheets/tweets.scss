@@ -264,3 +264,58 @@
 .login-flash-message {
   color: red;
 }
+
+
+//新規登録ボタン//
+.btn-sign {
+  display: inline-block;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  font-size: 30px;
+  border-bottom: solid 6px #627295;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding: 5px 60px;
+}
+.btn-sign:active {
+  transform: translateY(4px);
+  border-bottom: none;
+}
+
+//ログアウトボタン//
+.btn-logout {
+  display: inline-block;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  font-size: 30px;
+  border-bottom: solid 6px #627295;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding: 5px 50px;
+}
+.btn-logout:active {
+  transform: translateY(4px);
+  border-bottom: none;
+}
+
+//ログインボタン//
+.btn-login {
+  display: inline-block;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  font-size: 25px;
+  border-bottom: solid 6px #627295;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding: 5px 30px;
+}
+.btn-login:active {
+  transform: translateY(4px);
+  border-bottom: none;
+}
