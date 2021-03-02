@@ -14,12 +14,8 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.new(tweet_params)
-    if tweet.save
-      redirect_to root_path # 投稿の保存に成功したらトップページに遷移
-    else
-      redirect_to root_path
-    end
+    Tweet.create(tweet_params)
+    redirect_to root_path
   end
 
   def show

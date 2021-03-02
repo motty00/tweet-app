@@ -4,34 +4,18 @@
   <div class="tweet-container">
     <div class="tweet-header">
         <div class="new-container">
-        <% if user_signed_in? %>
-          <h3>新規投稿</h3>
-          <%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
-            <%= form.text_area :text, placeholder: "ツイートしてみよう！", size: "70 x 2" %>
-            <%= form.submit "投稿する" %>
-          <% end %>
+          <% if user_signed_in? %>
+            <h3>新規投稿</h3>
+            <%= form_with(model: @tweet, url: tweets_path, remote: true) do |form| %>
+              <%= form.text_area :text, placeholder: "ツイートしてみよう！", size: "70 x 2" %>
+              <%= form.submit "投稿する" %>
+            <% end %>
           <% end %>
         </div>
-
     </div>
-
-    <div class="tweet-main">
-      <% @tweets.each do |tweet| %>
-        <div class="tweet-text">
-          <!--投稿ユーザー名の表示-->
-          <div class="name-id">
-            <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
-          </div>
-            <!--投稿内容の表示-->
-          <div class="text-id">
-            <%= link_to tweet.text, tweet_path(tweet.id) %><br>
-          <div id="tweet_<%= tweet.id %>">
-            <!--お気に入りボタンの表示-->
-            <%= render "index", tweet: tweet %>
-          </div>
-          </div>
-        </div>
-      <% end %>
+    <div id="tweet-new">
+      <!--投稿一覧の表示の読み込み-->
+      <%= render "tweet_new" %>
     </div>
   </div>
 </div>
