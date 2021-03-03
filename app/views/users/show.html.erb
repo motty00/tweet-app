@@ -11,20 +11,18 @@
       </div>
     </div>
 
-    <div class="main">
+    <div class="tweet-main">
       <% @tweets.each do |tweet| %>
         <!--投稿した内容のIDとユーザーIDが一致しているものだけ表示（自分の投稿のみ表示）-->
         <% if tweet.user_id == @user.id %>
-          <div class="chat-content">
-            <div class="tweet-text">
-              <!--ユーザー名の表示-->
-              <div class="name-id">
-                <%= tweet.user.nickname %>
-              </div>
-              <!--投稿内容の表示-->
-              <div class="text-id">
-                <%= tweet.text %>
-              </div>
+          <div class="tweet-text">
+            <!--投稿ユーザー名の表示-->
+            <div class="name-id">
+              <%= "#{tweet.user.nickname}" %>
+            </div>
+            <!--投稿内容の表示-->
+            <div class="text-id">
+              <%= link_to tweet.text, tweet_path(tweet.id) %><br>
             </div>
           </div>
         <% end %>
