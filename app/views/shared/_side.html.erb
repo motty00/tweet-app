@@ -4,7 +4,7 @@
       <%= link_to root_path do %>
         <span class="fa fa-home"></span> 
       <% end %>
-      <div class="name">
+      <div class="nick-name">
         <!--ログイン状態であればユーザー名を表示、ログアウト状態はログインページへのリンク-->
         <% if user_signed_in? %>
           <%= link_to current_user.nickname, "/users/#{current_user.id}" %>
