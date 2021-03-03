@@ -2,7 +2,7 @@
   <div class="input-area">
     <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
       <%= link_to root_path do %>
-        <span class="fa fa-twitter"></span> 
+        <span class="fa fa-home"></span> 
       <% end %>
 
       <%= render 'shared/error_messages', model: @user %>
