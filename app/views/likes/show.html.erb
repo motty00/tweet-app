@@ -5,18 +5,21 @@
     <div class="fav">
       <%= "#{current_user.nickname}さんのお気に入り一覧" %>
     </div>
-    <!--お気に入りに登録した投稿のみ表示-->
-    <% @tweets.each do |tweet| %>
-      <div class="tweet-text">
-        <!--投稿したユーザー名の表示-->
-        <div class="name-id">
-          <%= tweet.user.nickname %>
+    
+    <div class="tweet-main">
+      <!--お気に入りに登録した投稿のみ表示-->
+      <% @tweets.each do |tweet| %>
+        <div class="tweet-text">
+          <!--投稿ユーザー名の表示-->
+          <div class="name-id">
+            <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
+          </div>
+          <!--投稿内容の表示-->
+          <div class="text-id">
+            <%= link_to tweet.text, tweet_path(tweet.id) %><br>
+          </div>
         </div>
-        <!--投稿内容の表示-->
-        <div class="text-id">
-          <%= tweet.text %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
