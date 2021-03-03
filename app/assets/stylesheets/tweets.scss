@@ -90,6 +90,7 @@
   word-wrap: break-word;
   padding: 10px 10px 10px 20px;
   border-bottom: 1px solid lightgray;
+  height: 147px;
 }
 .tweet-main :hover {
   background-color: #fafafa;
@@ -366,7 +367,7 @@ input[type="text"]:focus {
 }  
 
 //ツイートボタン//
-input[type="submit"] {
+.new-send {
   display: inline-block;
   padding: 7px 20px;
   border-radius: 25px;
@@ -375,7 +376,7 @@ input[type="submit"] {
   background-color: lightgray;
   border-bottom: solid 4px #627295;
 }
-input[type="submit"]:active {
+.new-send:active {
   transform: translateY(3px);
   border-bottom: none;
 }
