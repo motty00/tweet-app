@@ -5,9 +5,9 @@
     <div class="tweet-header">
         <div class="new-container">
           <% if user_signed_in? %>
-            <h3>新規投稿</h3>
-            <%= form_with(model: @tweet, url: tweets_path, remote: true) do |form| %>
-              <%= form.text_area :text, placeholder: "ツイートしてみよう！", size: "70 x 2" %>
+            <h2>新規投稿</h2>
+            <%= form_with(model: @tweet, url: tweets_path, remote: true, class: "new-text", id: "new") do |form| %>
+              <%= form.text_field :text, placeholder: "ツイートしてみよう！" %>
               <%= form.submit "投稿する" %>
             <% end %>
           <% end %>

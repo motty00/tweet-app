@@ -86,7 +86,6 @@
 }
 
 .tweet-text {
-  //margin: 20px 0px 50px 0px;
   font-size: 30px;
   word-wrap: break-word;
   padding: 10px 10px 10px 20px;
@@ -240,6 +239,9 @@
   height: 100vh;
   margin-left: 20px;
 }
+.new-container h2 {
+  font-style: italic;
+}
 
 .like-btn {
   color: lightgray;
@@ -342,5 +344,38 @@
 }
 .btn-login:active {
   transform: translateY(4px);
+  border-bottom: none;
+}
+
+//新規投稿フォーム//
+input[type="text"] {
+  font: 15px/36px sans-serif;
+	box-sizing: border-box;
+  width: 500px;
+  height: 50px;
+	padding: 10px 10px 0 10px;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	border: none;
+	border-bottom: 2px solid #1b2538;
+  background: transparent;
+}
+input[type="text"]:focus {
+  border-bottom: 2px solid #da3c41;
+  outline: none;
+}  
+
+//ツイートボタン//
+input[type="submit"] {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-color: skyblue;
+  border-bottom: solid 4px #627295;
+}
+input[type="submit"]:active {
+  transform: translateY(3px);
   border-bottom: none;
 }
