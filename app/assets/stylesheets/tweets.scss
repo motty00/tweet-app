@@ -68,12 +68,6 @@
   height: 147px;
   border-bottom: 2px solid lightgray;
 }
-.tweet-main {
-  background-color: #fafafa;
-  height: calc(100vh - 20vh);
-  width: calc(100vw - 300px);
-  overflow: scroll;
-}
 
 .post a {
   font-size: 40px;
@@ -82,22 +76,41 @@
   text-align: center;
 }
 
-.tweet-text {
-  border: double 5px #eeeeee;
-  margin: 20px 20px 0px 20px;
-  font-size: 30px;
-  border-radius: 10px;
-  background: lightgrey;
-  word-wrap: break-word;
-  padding: 10px 5px;
+
+
+
+.tweet-main {
+  height: calc(100vh - 20vh);
+  width: calc(100vw - 300px);
+  overflow: scroll;
 }
 
-.name-id {
-  border-bottom: solid 2px black;
+.tweet-text {
+  //margin: 20px 0px 50px 0px;
+  font-size: 30px;
+  word-wrap: break-word;
+  padding: 10px 10px 10px 20px;
+  border-bottom: 1px solid lightgray;
 }
+.tweet-main :hover {
+  background-color: #fafafa;
+  transition: all,0.5s;
+}
+
+
+
+.name-id {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+}
+.text-id {
+  color: black;
+}
+
 .name-id a {
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
 }
 .nick-name a {
@@ -229,11 +242,14 @@
 }
 
 .like-btn {
-  color: #fafafa;
+  color: lightgray;
 }
 
 .unlike-btn {
   color: red;
+}
+.fa-heart {
+  margin-bottom: 20px;
 }
 
 .fav {
