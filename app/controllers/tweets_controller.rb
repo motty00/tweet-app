@@ -14,8 +14,8 @@ class TweetsController < ApplicationController
   end
 
   def create
+    @tweets = Tweet.all.order('created_at desc')
     Tweet.create(tweet_params)
-    redirect_to root_path
   end
 
   def show

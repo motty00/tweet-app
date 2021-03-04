@@ -1,1 +1,3 @@
-document.getElementById('tweet-new').innerHTML = ("<%= j(render partial: 'tweet_new', locals: {tweet: @tweet}) %>");
+document.getElementById('tweet-new').innerHTML = ("<%= j(render partial: 'tweets/tweet_new') %>");
+$("text_area").val("");
+$("#new").val("");
