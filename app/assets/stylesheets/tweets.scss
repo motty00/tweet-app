@@ -60,6 +60,7 @@
 .tweet-container {
   width: calc(100vw - 300px);
   height: 100vh;
+  position: relative;
 }
 .tweet-header {
   padding: 0 40px;
@@ -90,7 +91,6 @@
   word-wrap: break-word;
   padding: 10px 10px 10px 20px;
   border-bottom: 1px solid lightgray;
-  height: 147px;
 }
 .tweet-main :hover {
   background-color: #fafafa;
@@ -106,6 +106,9 @@
 }
 .text-id {
   color: black;
+}
+.like {
+  height: 40px;
 }
 
 .name-id a {
@@ -373,10 +376,66 @@ input[type="text"]:focus {
   border-radius: 25px;
   text-decoration: none;
   color: #FFF;
-  background-color: lightgray;
+  background-color: skyblue;
   border-bottom: solid 4px #627295;
 }
 .new-send:active {
   transform: translateY(3px);
   border-bottom: none;
+}
+////////////////////////////////////
+
+.response {
+  position: relative;
+  position: absolute;
+  background-color: white;
+  height: 50px;
+  margin: 10px 0 10px 10px;
+}
+.comment-footer {
+  border-top: double 5px #cce4ff;
+  margin-bottom: 30px;
+}
+.tweet-containers {
+  width: calc(100vw - 300px);
+  height: 100vh;
+  position: relative;
+}
+
+
+
+
+.tweet-mains {
+  height: 50vh;
+  width: calc(100vw - 300px);
+  overflow: scroll;
+}
+
+.tweet-texts {
+  font-size: 30px;
+  word-wrap: break-word;
+  padding: 10px 10px 10px 20px;
+  border-bottom: 1px solid lightgray;
+}
+.tweet-mains :hover {
+  background-color: #fafafa;
+  transition: all,0.5s;
+}
+
+
+.comment-wrap {
+  margin: 5px 0 10px 10px;
+  height: 5vh;
+}
+.comment-content {
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  width: 110px;
+  border-bottom: 2px dotted black;
+}
+
+.actions {
+  position: absolute;
+  left: 520px;
+  top: 45px;
 }
