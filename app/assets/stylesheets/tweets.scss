@@ -381,10 +381,39 @@ input[type="text"]:focus {
   transform: translateY(3px);
   border-bottom: none;
 }
+////////////////////////////////////
 
 .response {
   position: absolute;
   bottom: 0;
   margin-left: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
+  background-color: white;
+  height: 50px;
+
+}
+.comment-footer {
+  height: calc(100vh - 20vh - 65vh);
+  border-top: 2px solid lightgray;
+}
+
+
+
+
+.tweet-mains {
+  height: 468px;
+  width: calc(100vw - 300px);
+  overflow: scroll;
+}
+
+.tweet-texts {
+  font-size: 30px;
+  word-wrap: break-word;
+  padding: 10px 10px 10px 20px;
+  border-bottom: 1px solid lightgray;
+  height: 147px;
+}
+.tweet-mains :hover {
+  background-color: #fafafa;
+  transition: all,0.5s;
 }
