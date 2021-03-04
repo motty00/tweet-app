@@ -7,7 +7,7 @@
           <% if user_signed_in? %>
             <h2>新規投稿</h2>
             <%= form_with(model: @tweet, url: tweets_path, remote: true, class: "new-text") do |form| %>
-              <%= form.text_field :text, placeholder: "ツイートしてみよう！", id: "new" %>
+              <%= form.text_field :text, placeholder: "ツイートしてみよう！", id: "new", maxlength:"50" %>
               <%= form.submit "投稿する", id: "new-submit", class: "new-send" %>
             <% end %>
           <% end %>

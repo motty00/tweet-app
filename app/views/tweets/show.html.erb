@@ -1,8 +1,8 @@
 <div class="wrapper">
   <!--サイドバーの読み込み-->
   <%= render "shared/side" %>
-  <div class="tweet-container">
-    <div class="tweet-text">
+  <div class="tweet-containers">
+    <div class="tweet-texts">
       <!--ユーザー名の表示-->
       <div class="name-id">
         <%= @tweet.user.nickname %>
@@ -25,11 +25,17 @@
       </div>
     </div>
 
+    <div class="comment-wrap">
+      <div class="comment-content">
+        コメント一覧
+      </div>
+    </div>
+
 
     <div class="tweet-mains">
       <!--お気に入りに登録した投稿のみ表示-->
       <% @comments.each do |comment| %>
-        <div class="tweet-texts">
+        <div class="tweet-text">
           <!--投稿ユーザー名の表示-->
           <div class="name-id">
             <%= "#{comment.user.nickname}" %>
@@ -41,6 +47,7 @@
         </div>
       <% end %>
     </div>
+    
 
 
     <div class="comment-footer">
@@ -51,7 +58,7 @@
             <%= f.text_field :content %>
           </div>
           <div class="actions">
-            <%= f.submit "送信する", class: :form__btn  %>
+            <%= f.submit "コメントする" %>
           </div>
         <% end %> 
       </div>
