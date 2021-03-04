@@ -31,15 +31,24 @@
       </div>
     </div>
 
-
-    <div id="com">
-      <%= render "comment" %>    
+    <div class="tweet-mains">
+      <% @comments.each do |comment| %>
+        <div class="tweet-text">
+          <!--コメントユーザー名の表示-->
+          <div class="name-id">
+            <%= "#{comment.user.nickname}" %>
+          </div>
+          <!--コメント内容の表示-->
+          <div class="text-id">
+            <%= comment.content %><br>
+          </div>
+        </div>
+      <% end %>
     </div>
-
 
     <div class="comment-footer">
       <div class="response">
-        <%= form_with(model: [@tweet, @comment], remote: true) do |f|%>
+        <%= form_with(model: [@tweet, @comment], local: true) do |f|%>
           <div class="field">
             <%= f.label :content, "コメント" %><br />
             <%= f.text_field :content %>
