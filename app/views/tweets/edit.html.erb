@@ -4,8 +4,8 @@
   <div class="content-edit">
       <h3>編集する</h3>
       <%= form_with(model: @tweet, local: true) do |f| %>
-        <%= f.text_area :text, placeholder: "text", size: "70 x 5" %>
-        <%= f.submit "更新" %>
+        <%= f.text_area :text, placeholder: "text", class: "edit-area" %>
+        <%= f.submit "更新", class: "edit-btn" %>
       <% end %>
   </div>
 </div>
