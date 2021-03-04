@@ -1,0 +1,15 @@
+<div class="tweet-mains">
+  <!--お気に入りに登録した投稿のみ表示-->
+  <% @comments.each do |comment| %>
+    <div class="tweet-text">
+      <!--投稿ユーザー名の表示-->
+      <div class="name-id">
+        <%= "#{comment.user.nickname}" %>
+      </div>
+      <!--投稿内容の表示-->
+      <div class="text-id">
+        <%= comment.content %><br>
+      </div>
+    </div>
+  <% end %>
+</div>
