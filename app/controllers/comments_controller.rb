@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
     @comments = Comment.new(comment_params)
     if @comments.save
       redirect_to tweet_path(@comments.tweet)
+    else
+      redirect_to tweet_path(@comments.tweet)
     end
   end
 
