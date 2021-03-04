@@ -20,8 +20,8 @@ class TweetsController < ApplicationController
 
   def show
     @like = Like.where(tweet_id: params[:id]) # 特定の投稿IDのお気に入りの数を取得
-    @comments = @tweet.comments
     @comment = Comment.new
+    @comments = @tweet.comments
   end
 
   def edit
