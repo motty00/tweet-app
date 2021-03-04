@@ -60,6 +60,7 @@
 .tweet-container {
   width: calc(100vw - 300px);
   height: 100vh;
+  position: relative;
 }
 .tweet-header {
   padding: 0 40px;
@@ -379,4 +380,11 @@ input[type="text"]:focus {
 .new-send:active {
   transform: translateY(3px);
   border-bottom: none;
+}
+
+.response {
+  position: absolute;
+  bottom: 0;
+  margin-left: 20px;
+  margin-bottom: 50px;
 }
