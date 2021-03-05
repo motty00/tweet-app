@@ -1,11 +1,12 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_tweet, only: [:index, :create]
+  before_action :find_tweet, only: [:update, :destroy]
   before_action :set_find, only: [:show, :edit]
   before_action :set_like, only: [:index, :show, :new, :edit]
   before_action :move_to_index, except: [:index, :show, :edit, :update, :create, :destroy]
 
   def index
-    @tweets = Tweet.all.order('created_at desc') # 全ての投稿を新しい順に表示
     @users = User.all
   end
 
@@ -14,7 +15,6 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweets = Tweet.all.order('created_at desc')
     Tweet.create(tweet_params)
   end
 
@@ -29,8 +29,7 @@ class TweetsController < ApplicationController
   end
 
   def update
-    tweet = Tweet.find(params[:id])
-    if tweet.update(tweets_params)
+    if @tweet.update(tweets_params)
       redirect_to tweet_path # 更新に成功したら投稿詳細ページに遷移
     else
       redirect_to edit_tweet_path # 更新に失敗したら投稿編集ページに戻る
@@ -38,8 +37,7 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
-    tweet.destroy
+    @tweet.destroy
   end
 
   private
@@ -50,6 +48,14 @@ class TweetsController < ApplicationController
 
   def tweets_params
     params.require(:tweet).permit(:text).merge(user_id: current_user.id)
+  end
+
+  def set_tweet
+    @tweets = Tweet.all.order('created_at desc')
+  end
+
+  def find_tweet
+    @tweet = Tweet.find(params[:id])
   end
 
   def set_find
