@@ -415,12 +415,11 @@ input[type="text"]:focus {
   position: relative;
   position: absolute;
   background-color: white;
-  height: 50px;
-  margin: 10px 0 10px 10px;
+  margin: 10px 0 10px 5px;
+  bottom: 50px;
+  border-top: double 5px #cce4ff;
 }
 .comment-footer {
-  border-top: double 5px #cce4ff;
-  margin-bottom: 30px;
 }
 .tweet-containers {
   width: calc(100vw - 300px);
@@ -457,7 +456,6 @@ input[type="text"]:focus {
   font-size: 20px;
   font-family: 'Courier New', Courier, monospace;
   width: 110px;
-  border-bottom: 2px dotted black;
 }
 
 .actions {
@@ -470,4 +468,7 @@ input[type="text"]:focus {
   margin-left: 20px;
   margin-top: 5px;
   color: lightblue;
+}
+.field {
+  width: calc(100vw - 300px);
 }
