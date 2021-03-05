@@ -13,4 +13,6 @@
   <% end %>
   <!--お気に入りを登録された回数を表示-->
   <%= tweet.likes.count %>
+  <span class="fa fa-comment like-btn"></span> 
+  <%= tweet.comments.count %>
 <%end%>
