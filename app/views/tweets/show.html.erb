@@ -48,6 +48,11 @@
           <div class="text-id">
             <%= comment.content %><br>
           </div>
+          <% if current_user.id == comment.user_id %>
+            <div class="delete-comment">
+              <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

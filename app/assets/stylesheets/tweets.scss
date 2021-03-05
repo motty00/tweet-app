@@ -472,3 +472,20 @@ input[type="text"]:focus {
 .field {
   width: calc(100vw - 300px);
 }
+
+
+
+.delete-comment {
+}
+.delete-comment a {
+  font-size: 20px;
+  color: black;
+  margin-left: 10px;
+  text-decoration: none;
+  border: solid 2px black;
+  opacity: 0.1;
+  border-radius: 5px;
+}
+.delete-comment :hover {
+  opacity: 10;
+}
