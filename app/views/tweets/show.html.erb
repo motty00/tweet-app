@@ -25,11 +25,16 @@
       </div>
     </div>
 
-    <div class="content-wrapper">
     <div class="comment-wrap">
-      <div class="comment-content" id="comment">
-        <button>コメント一覧</button>
-      </div>
+      <% if @commentall.exists?(id: @comments) %>
+        <div class="comment-content" id="comment">
+          <button>コメントを表示/非表示</button>
+        </div>
+      <% else %>
+        <div class="comment-content" id="comment">
+          <p>コメントしてみよう！</p>
+        </div>
+      <% end %>
     </div>
 
     <div class="tweet-mains">

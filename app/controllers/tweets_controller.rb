@@ -22,6 +22,7 @@ class TweetsController < ApplicationController
     @like = Like.where(tweet_id: params[:id]) # 特定の投稿IDのお気に入りの数を取得
     @comment = Comment.new
     @comments = @tweet.comments.order('created_at desc')
+    @commentall = Comment.all
   end
 
   def edit
