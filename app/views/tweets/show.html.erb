@@ -19,7 +19,7 @@
             <%= link_to "編集", edit_tweet_path %>
           </div>
           <div class="delete">
-            <%= link_to "削除", tweet_path, method: :delete %>
+            <%= link_to "削除", tweet_path, method: :delete, data: { confirm: '削除しますか？' } %>
           </div>
         <% end %>
       </div>
@@ -50,7 +50,7 @@
           </div>
           <% if current_user.id == comment.user_id %>
             <div class="delete-comment">
-              <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete %>
+              <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete, data: { confirm: '削除しますか？' } %>
             </div>
           <% end %>
         </div>
