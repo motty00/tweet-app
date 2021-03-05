@@ -40,7 +40,6 @@ class TweetsController < ApplicationController
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.destroy
-    redirect_to root_path # 削除が完了したらトップページに遷移
   end
 
   private
