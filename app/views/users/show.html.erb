@@ -5,6 +5,7 @@
     <div class="header">
       <div class="user-name">
         <%= "#{@user.nickname}さんのマイページ" %>
+        <!--ログインユーザーのマイページであれば編集ボタンを表示-->
         <% if @user.id == current_user.id %>
           <div class="user-edit">
             <%= link_to "編集", edit_user_path %>

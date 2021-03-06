@@ -1,10 +1,9 @@
 <div class="sign-in">
   <div class="input-area">
-    <%= form_for(@user, url: user_path, action: "update", local: true) do |f| %>
+    <%= form_with(model: @user, action: "update", local: true) do |f| %>
       <%= link_to root_path do %>
         <span class="fa fa-home"></span> 
       <% end %>
-      <%#= render 'shared/error_messages', model: @user %>
       <h1>編集ページ</h1>
       <div class="form-group">
         <div class='form-text-wrap'>
