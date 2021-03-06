@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   before_action :set_find, only: [:show, :edit]
   before_action :set_like, only: [:index, :show, :new, :edit]
   before_action :move_to_index, except: [:index, :show, :edit, :update, :create, :destroy]
+  before_action :move_index, only: [:edit]
 
   def index
     @users = User.all # 全てのユーザー情報を取得
@@ -69,4 +70,12 @@ class TweetsController < ApplicationController
   def move_to_index
     redirect_to action: :index if user_signed_in?
   end
+
+  def move_index
+    tweet = Tweet.find(params[:id])
+    if current_user.id != tweet.user_id
+      redirect_to root_path
+    end
+  end
+
 end
