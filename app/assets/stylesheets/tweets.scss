@@ -246,6 +246,7 @@ h3 {
 }
 
 .input-area {
+  position: relative;
   text-align: center;
   height: 100vh;
   padding-top: 30px;
@@ -495,4 +496,8 @@ input[type="text"]:focus {
 }
 .success {
   margin: auto;
+}
+
+.actions {
+  position: absolute;
 }

@@ -1,22 +1,28 @@
+<div class="sign-in">
+  <div class="input-area">
+    <%= form_for(@user, url: user_path, action: "update", local: true) do |f| %>
+      <%= link_to root_path do %>
+        <span class="fa fa-home"></span> 
+      <% end %>
+      <%#= render 'shared/error_messages', model: @user %>
+      <h1>編集ページ</h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">ニックネーム</label>
+        </div>
+        <%= f.text_area :nickname, class:"input-default", placeholder:"例) 10文字まで", maxlength:"10" %>
+      </div>
+      <div class='form-text-wrap'>
+        <label class="form-text">自己紹介</label>
+      </div>
+      <div class='input-name-wrap'>
+        <%= f.text_area :self_introduction, class:"input-introduction",maxlength:"200", placeholder:"200字まで" %>
+      </div>
 
+      <div class="update">
+        <%= f.submit "更新する" %>
+      </div>
+    <% end %>
 
-  <%= form_for(@user, url: user_path, action: "update", local: true) do |form| %>
-  <%#= render "devise/shared/error_messages", resource: resource %>
-
-
-  <div class="field">
-    <%= form.label :nickname %><br />
-    <%= form.text_field :nickname, autofocus: true, autocomplete: "" %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :self_introduction %><br />
-    <%= form.text_area :self_introduction, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Update" %>
-  </div>
-<% end %>
-
+</div>
+</div>
