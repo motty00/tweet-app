@@ -7,7 +7,7 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :edit, :update, :create, :destroy]
 
   def index
-    @users = User.all #全てのユーザー情報を取得
+    @users = User.all # 全てのユーザー情報を取得
   end
 
   def new
@@ -21,8 +21,8 @@ class TweetsController < ApplicationController
   def show
     @like = Like.where(tweet_id: params[:id]) # 特定の投稿IDのお気に入りの数を取得
     @comment = Comment.new
-    @comments = @tweet.comments.order('created_at desc') #特定の投稿に対するコメントを取得
-    @commentall = Comment.all #コメントを全て取得
+    @comments = @tweet.comments.order('created_at desc') # 特定の投稿に対するコメントを取得
+    @commentall = Comment.all # コメントを全て取得
   end
 
   def edit
@@ -51,11 +51,11 @@ class TweetsController < ApplicationController
   end
 
   def set_tweet
-    @tweets = Tweet.all.order('created_at desc') #全てのツイート情報を取得
+    @tweets = Tweet.all.order('created_at desc') # 全てのツイート情報を取得
   end
 
   def find_tweet
-    @tweet = Tweet.find(params[:id]) #特定のツイート情報を取得
+    @tweet = Tweet.find(params[:id]) # 特定のツイート情報を取得
   end
 
   def set_find
@@ -67,9 +67,6 @@ class TweetsController < ApplicationController
   end
 
   def move_to_index
-    if user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index if user_signed_in?
   end
-
 end

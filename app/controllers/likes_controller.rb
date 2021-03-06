@@ -20,7 +20,6 @@ class LikesController < ApplicationController
     @tweets = Tweet.where(id: like) # tweetsテーブルからidが変数likeに入っているレコードを取得
   end
 
-
   private
 
   def set_like
