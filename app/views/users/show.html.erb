@@ -4,7 +4,10 @@
   <div class="container">
     <div class="header">
       <div class="user-name">
-        <%= "#{@user.nickname}さんのマイページ" %><%= link_to "編集", edit_user_path %>
+        <%= "#{@user.nickname}さんのマイページ" %>
+        <div class="user-edit">
+        <%= link_to "編集", edit_user_path %>
+        </div>
       </div>
       <!--自己紹介文を表示-->
       <div class="user-introduction">
