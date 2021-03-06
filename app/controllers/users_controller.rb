@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :move_index, only: [:edit]
 
   def show
     @user = User.find(params[:id]) # 特定のユーザー情報を取得
@@ -25,6 +26,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nickname, :self_introduction)
   end
 
+  def move_index
+    user = User.find(params[:id])
+    if current_user.id != user.id
+      redirect_to root_path
+    end
+  end
 
 
 end
