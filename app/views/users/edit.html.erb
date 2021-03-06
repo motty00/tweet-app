@@ -1,0 +1,22 @@
+
+
+  <%= form_for(@user, url: user_path, action: "update", local: true) do |form| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+
+
+  <div class="field">
+    <%= form.label :nickname %><br />
+    <%= form.text_field :nickname, autofocus: true, autocomplete: "" %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :self_introduction %><br />
+    <%= form.text_area :self_introduction, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update" %>
+  </div>
+<% end %>
+
