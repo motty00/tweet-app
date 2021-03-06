@@ -4,6 +4,7 @@
   <div class="tweet-container">
     <div class="tweet-header">
         <div class="new-container">
+          <!--ログイン中であれば新規投稿フォームを表示-->
           <% if user_signed_in? %>
             <h2>新規投稿</h2>
             <%= form_with(model: @tweet, url: tweets_path, remote: true, class: "new-text") do |form| %>
@@ -14,7 +15,7 @@
         </div>
     </div>
     <div id="tweet-new">
-      <!--投稿一覧の表示の読み込み-->
+      <!--投稿一覧表示の読み込み-->
       <%= render "tweet_new" %>
     </div>
   </div>

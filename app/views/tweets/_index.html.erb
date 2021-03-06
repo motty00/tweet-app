@@ -1,3 +1,4 @@
+<!--ログイン中であればお気に入り数、コメント数を表示-->
 <% if user_signed_in? %>
   <!--liked_by?(tweet.id)でお気に入りを登録しているか判別している-->
   <% if current_user.liked_by?(tweet.id) %>
@@ -13,6 +14,7 @@
   <% end %>
   <!--お気に入りを登録された回数を表示-->
   <%= tweet.likes.count %>
+  <!--コメントされた数を表示-->
   <span class="fa fa-comment like-btn"></span> 
   <%= tweet.comments.count %>
 <%end%>

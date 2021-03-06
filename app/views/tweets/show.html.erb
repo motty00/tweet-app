@@ -14,6 +14,7 @@
         <div class="likes">
           <%= "#{@like.count}件のお気に入り" %>
         </div>
+        <!--ツイートを投稿したユーザーであればツイートの編集、削除ボタンを表示-->
         <% if current_user.id == @tweet.user_id %>
           <div class="edit">
             <%= link_to "編集", edit_tweet_path %>
@@ -26,11 +27,14 @@
     </div>
 
     <div class="comment-wrap">
+      <!--ツイートに対してコメントがあれば以下を表示-->
       <% if @commentall.exists?(id: @comments) %>
+        <!--コメントの表示/非表示を切り替えるボタン-->
         <div class="comment-content" id="comment">
           <button>コメントを表示/非表示</button>
         </div>
       <% else %>
+        <!--ツイートに対してコメントがなければ以下を表示-->
         <div class="comment-content" id="comment">
           <p>コメントしてみよう！</p>
         </div>
@@ -48,6 +52,7 @@
           <div class="text-id">
             <%= comment.content %><br>
           </div>
+          <!--コメントしたユーザーであればコメントの削除ボタンを表示-->
           <% if current_user.id == comment.user_id %>
             <div class="delete-comment">
               <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete, data: { confirm: '削除しますか？' } %>
@@ -70,7 +75,5 @@
         <% end %> 
       </div>
     </div>
-
-
   </div>
 </div>
