@@ -458,6 +458,23 @@ input[type="text"]:focus {
   font-family: 'Courier New', Courier, monospace;
   width: 220px;
 }
+.comment-content button {
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  color: lightblue;
+  outline: none;
+  background-color: transparent;
+  opacity: 0.8;
+}
+.comment-content :hover {
+  cursor: pointer;
+  opacity: 10;
+  color: skyblue;
+}
+.comment-contents {
+  font-size: 20px;
+}
 
 .actions {
   position: absolute;
