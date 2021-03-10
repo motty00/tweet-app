@@ -14,7 +14,7 @@ RSpec.describe Tweet, type: :model do
       it 'textが空だと登録できない' do
         @tweet.text = ''
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("Text can't be blank")
+        expect(@tweet.errors.full_messages).to include("Textが入力されていません。")
       end
     end
   end
