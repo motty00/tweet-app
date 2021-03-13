@@ -7,10 +7,11 @@
       <div class="name-id">
         <%= @tweet.user.nickname %>
       </div>
+      <!--投稿画像の表示-->
+      <%= image_tag @tweet.image.variant(resize: '200x200') if @tweet.image.attached? %>
       <!--投稿内容の表示-->
       <div class="text-id">
         <%= @tweet.text %><br>
-        <%= image_tag @tweet.image.variant(resize: '200x200') if @tweet.image.attached? %>
         <!--お気に入りに登録された回数を表示-->
         <div class="likes">
           <%= "#{@like.count}件のお気に入り" %>

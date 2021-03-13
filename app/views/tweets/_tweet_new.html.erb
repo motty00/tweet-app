@@ -6,7 +6,8 @@
       <div class="name-id">
         <%= link_to "#{tweet.user.nickname}", user_path(tweet.user.id) %>
       </div>
-      <%= link_to image_tag(tweet.image.variant(resize: '500x500')),tweet_path(tweet.id) if tweet.image.attached? %>
+      <!--投稿画像を表示-->
+      <%= link_to image_tag(tweet.image.variant(resize: '320x320')),tweet_path(tweet.id) if tweet.image.attached? %>
       <!--投稿内容の表示-->
       <div class="text-id">
         <%= link_to tweet.text, tweet_path(tweet.id) %><br>
