@@ -28,10 +28,6 @@ class UsersController < ApplicationController
 
   def move_index
     user = User.find(params[:id])
-    if current_user.id != user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id != user.id
   end
-
-
 end

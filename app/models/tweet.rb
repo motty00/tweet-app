@@ -1,5 +1,4 @@
 class Tweet < ApplicationRecord
-
   belongs_to :user
   has_many   :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -8,6 +7,6 @@ class Tweet < ApplicationRecord
   validates :content, presence: true, unless: :was_attached?
 
   def was_attached?
-    self.image.attached?
+    image.attached?
   end
 end

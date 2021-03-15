@@ -73,9 +73,6 @@ class TweetsController < ApplicationController
 
   def move_index
     tweet = Tweet.find(params[:id])
-    if current_user.id != tweet.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id != tweet.user_id
   end
-
 end

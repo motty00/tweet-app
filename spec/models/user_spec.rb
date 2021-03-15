@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
       it 'emailが空だと登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("メールアドレスが入力されていません。")
+        expect(@user.errors.full_messages).to include('メールアドレスが入力されていません。')
       end
       it 'emailに@が存在しないと登録できない' do
         @user.email = 'hoge123.com'
@@ -41,22 +41,22 @@ RSpec.describe User, type: :model do
       it 'passwordが空だと登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードが入力されていません。")
+        expect(@user.errors.full_messages).to include('パスワードが入力されていません。')
       end
       it 'passwordが存在してもpasspwrd_confirmationが空だと登録できない' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmationが内容とあっていません。")
+        expect(@user.errors.full_messages).to include('Password confirmationが内容とあっていません。')
       end
       it 'passwordが英字だけでは登録できない' do
         @user.password = 'hogehoge'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmationが内容とあっていません。", "パスワードは有効でありません。")
+        expect(@user.errors.full_messages).to include('Password confirmationが内容とあっていません。', 'パスワードは有効でありません。')
       end
       it 'passwordが数字だけでは登録できない' do
         @user.password = '12345678'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmationが内容とあっていません。", "パスワードは有効でありません。")
+        expect(@user.errors.full_messages).to include('Password confirmationが内容とあっていません。', 'パスワードは有効でありません。')
       end
       it 'passwordが全角では登録できない' do
         @user.password = 'ほげほげ１１'
@@ -67,22 +67,22 @@ RSpec.describe User, type: :model do
       it 'nicknameが空だと登録できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネームが入力されていません。")
+        expect(@user.errors.full_messages).to include('ニックネームが入力されていません。')
       end
       it 'last_nameが空だと登録できない' do
         @user.last_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("苗字が入力されていません。", "苗字は有効でありません。")
+        expect(@user.errors.full_messages).to include('苗字が入力されていません。', '苗字は有効でありません。')
       end
       it 'first_nameが空だと登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前が入力されていません。", "名前は有効でありません。")
+        expect(@user.errors.full_messages).to include('名前が入力されていません。', '名前は有効でありません。')
       end
       it 'last_name_kanaが空だと登録できない' do
         @user.last_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("ミョウジが入力されていません。", "ミョウジは有効でありません。")
+        expect(@user.errors.full_messages).to include('ミョウジが入力されていません。', 'ミョウジは有効でありません。')
       end
       it 'last_name_kanaがカタカナ以外だと登録できない' do
         @user.last_name_kana = 'ほげほげ'
@@ -92,7 +92,7 @@ RSpec.describe User, type: :model do
       it 'first_name_kanaが空だと登録できない' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("ナマエが入力されていません。", "ナマエは有効でありません。")
+        expect(@user.errors.full_messages).to include('ナマエが入力されていません。', 'ナマエは有効でありません。')
       end
       it 'first_name_kanaがカタカナ以外だと登録できない' do
         @user.first_name_kana = 'ほげほげ'
@@ -112,7 +112,7 @@ RSpec.describe User, type: :model do
       it 'self_introductionが空だと登録できない' do
         @user.self_introduction = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("自己紹介文が入力されていません。")
+        expect(@user.errors.full_messages).to include('自己紹介文が入力されていません。')
       end
     end
   end
