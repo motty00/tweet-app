@@ -7,6 +7,8 @@
       <div class="name-id">
         <%= @tweet.user.nickname %>
       </div>
+      <!--投稿画像の表示-->
+      <%= image_tag @tweet.image.variant(resize: '200x200') if @tweet.image.attached? %>
       <!--投稿内容の表示-->
       <div class="text-id">
         <%= @tweet.text %><br>
