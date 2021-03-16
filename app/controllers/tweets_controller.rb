@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
     @like = Like.where(tweet_id: params[:id]) # 特定の投稿IDのお気に入りの数を取得
     @comment = Comment.new
     @comments = @tweet.comments.order('created_at desc') # 特定の投稿に対するコメントを取得
-    @commentall = Comment.all # コメントを全て取得
+    @commentall = @tweet.comments.includes(:user)
   end
 
   def edit
@@ -52,7 +52,7 @@ class TweetsController < ApplicationController
   end
 
   def set_tweet
-    @tweets = Tweet.all.order('created_at desc') # 全てのツイート情報を取得
+    @tweets = Tweet.includes(:user).order('created_at desc') # 全てのツイート情報を取得
   end
 
   def find_tweet
