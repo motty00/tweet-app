@@ -63,7 +63,7 @@ https://tweet-app-34467.herokuapp.com/
 * チャットルームを作りチャットルームのパスワードを知っている人同士でコミュニケーションができる機能
 
 ## データベース設計
-* er.dioファイルを参照
+* https://gyazo.com/b435c1944ee7e9ab09c2efa4627eda16
 
 
 _____________________________________________________________________________________________________________________________________________
@@ -76,7 +76,7 @@ ________________________________________________________________________________
 | ----------------------- | ------ | ------------------------ |
 | email                   | string | null: false, unique: true|
 | encrypted_password      | string | null: false              |
-| nickname                | string | null: false,             |
+| nickname                | string | null: false              |
 | last_name               | string | null: false              |
 | first_name              | string | null: false              |
 | last_name_kana          | string | null: false              |
