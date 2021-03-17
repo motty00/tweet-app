@@ -49,17 +49,17 @@
           <!--コメントユーザー名の表示-->
           <div class="name-id">
             <%= "#{comment.user.nickname}" %>
+            <!--コメントしたユーザーであればコメントの削除ボタンを表示-->
+            <% if current_user.id == comment.user_id %>
+              <div class="delete-comment">
+                <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete, data: { confirm: '削除しますか？' } %>
+              </div>
+            <% end %>
           </div>
           <!--コメント内容の表示-->
           <div class="text-id">
             <%= comment.content %><br>
           </div>
-          <!--コメントしたユーザーであればコメントの削除ボタンを表示-->
-          <% if current_user.id == comment.user_id %>
-            <div class="delete-comment">
-              <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete, data: { confirm: '削除しますか？' } %>
-            </div>
-          <% end %>
         </div>
       <% end %>
     </div>
