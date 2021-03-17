@@ -416,11 +416,12 @@ input[type="text"]:focus {
   position: relative;
   position: absolute;
   background-color: white;
-  margin: 10px 0 10px 5px;
-  bottom: 50px;
+  margin: 10px 0 0px 5px;
+  bottom: 15px;
   border-top: double 5px #cce4ff;
 }
 .comment-footer {
+  background-color: #4ec4d3;
 }
 .tweet-containers {
   width: calc(100vw - 300px);
@@ -432,7 +433,7 @@ input[type="text"]:focus {
 
 
 .tweet-mains {
-  height: 50vh;
+  height: 40vh;
   width: calc(100vw - 300px);
   overflow: scroll;
 }
