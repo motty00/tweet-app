@@ -2,78 +2,80 @@
   <!--サイドバーの読み込み-->
   <%= render "shared/side" %>
   <div class="tweet-containers">
-    <div class="tweet-texts">
-      <!--ユーザー名の表示-->
-      <div class="name-id">
-        <%= @tweet.user.nickname %>
-      </div>
-      <!--投稿画像の表示-->
-      <%= image_tag @tweet.image.variant(resize: '200x200') if @tweet.image.attached? %>
-      <!--投稿内容の表示-->
-      <div class="text-id">
-        <%= @tweet.text %><br>
-        <!--お気に入りに登録された回数を表示-->
-        <div class="likes">
-          <%= "#{@like.count}件のお気に入り" %>
+    <div class="tweet-div">
+      <div class="tweet-texts">
+        <!--ユーザー名の表示-->
+        <div class="name-id">
+          <%= @tweet.user.nickname %>
         </div>
-        <!--ツイートを投稿したユーザーであればツイートの編集、削除ボタンを表示-->
-        <% if current_user.id == @tweet.user_id %>
-          <div class="edit">
-            <%= link_to "編集", edit_tweet_path %>
+        <!--投稿画像の表示-->
+        <%= image_tag @tweet.image.variant(resize: '200x200') if @tweet.image.attached? %>
+        <!--投稿内容の表示-->
+        <div class="text-id">
+          <%= @tweet.text %><br>
+          <!--お気に入りに登録された回数を表示-->
+          <div class="likes">
+            <%= "#{@like.count}件のお気に入り" %>
           </div>
-          <div class="delete">
-            <%= link_to "削除", tweet_path, method: :delete, data: { confirm: '削除しますか？' } %>
+          <!--ツイートを投稿したユーザーであればツイートの編集、削除ボタンを表示-->
+          <% if current_user.id == @tweet.user_id %>
+            <div class="edit">
+              <%= link_to "編集", edit_tweet_path %>
+            </div>
+            <div class="delete">
+              <%= link_to "削除", tweet_path, method: :delete, data: { confirm: '削除しますか？' } %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="comment-wrap">
+        <!--ツイートに対してコメントがあれば以下を表示-->
+        <% if @commentall.exists?(id: @comments) %>
+          <!--コメントの表示/非表示を切り替えるボタン-->
+          <div class="comment-content" id="comment">
+            <button>コメントを表示/非表示</button>
+          </div>
+        <% else %>
+          <!--ツイートに対してコメントがなければ以下を表示-->
+          <div class="comment-contents" id="comment">
+            <h4>コメントしてみよう！</h4>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="tweet-mains">
+        <% @comments.each do |comment| %>
+          <div class="tweet-text">
+            <!--コメントユーザー名の表示-->
+            <div class="name-id">
+              <%= "#{comment.user.nickname}" %>
+              <!--コメントしたユーザーであればコメントの削除ボタンを表示-->
+              <% if current_user.id == comment.user_id %>
+                <div class="delete-comment">
+                  <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete, data: { confirm: '削除しますか？' } %>
+                </div>
+              <% end %>
+            </div>
+            <!--コメント内容の表示-->
+            <div class="text-id">
+              <%= comment.content %><br>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
 
-    <div class="comment-wrap">
-      <!--ツイートに対してコメントがあれば以下を表示-->
-      <% if @commentall.exists?(id: @comments) %>
-        <!--コメントの表示/非表示を切り替えるボタン-->
-        <div class="comment-content" id="comment">
-          <button>コメントを表示/非表示</button>
+    <div class="response">
+      <%= form_with(model: [@tweet, @comment], local: true) do |f|%>
+        <div class="field">
+          <%= f.label :content, "コメント" %><br />
+          <%= f.text_field :content %>
         </div>
-      <% else %>
-        <!--ツイートに対してコメントがなければ以下を表示-->
-        <div class="comment-contents" id="comment">
-          <h4>コメントしてみよう！</h4>
+        <div class="actions">
+          <%= f.submit "コメントする",class: "new-send", maxlength:"50" %>
         </div>
-      <% end %>
+      <% end %> 
     </div>
-
-    <div class="tweet-mains">
-      <% @comments.each do |comment| %>
-        <div class="tweet-text">
-          <!--コメントユーザー名の表示-->
-          <div class="name-id">
-            <%= "#{comment.user.nickname}" %>
-            <!--コメントしたユーザーであればコメントの削除ボタンを表示-->
-            <% if current_user.id == comment.user_id %>
-              <div class="delete-comment">
-                <%= link_to "削除", tweet_comment_path(@tweet,comment), method: :delete, data: { confirm: '削除しますか？' } %>
-              </div>
-            <% end %>
-          </div>
-          <!--コメント内容の表示-->
-          <div class="text-id">
-            <%= comment.content %><br>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-      <div class="response">
-        <%= form_with(model: [@tweet, @comment], local: true) do |f|%>
-          <div class="field">
-            <%= f.label :content, "コメント" %><br />
-            <%= f.text_field :content %>
-          </div>
-          <div class="actions">
-            <%= f.submit "コメントする",class: "new-send", maxlength:"50" %>
-          </div>
-        <% end %> 
-      </div>
   </div>
 </div>
