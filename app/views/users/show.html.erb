@@ -5,6 +5,10 @@
     <div class="header">
       <div class="user-name">
         <%= "#{@user.nickname}さんのマイページ" %>
+
+        <%= render "relationships/follow_button", user: @user %>
+
+
         <!--ログインユーザーのマイページであれば編集ボタンを表示-->
         <% if @user.id == current_user.id %>
           <div class="user-edit">
