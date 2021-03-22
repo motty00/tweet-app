@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :move_index, only: [:edit]
   before_action :set_follow, only: [:show, :edit]
+  before_action :set_follower, only: [:show, :edit]
 
 
   def show
@@ -27,6 +28,12 @@ class UsersController < ApplicationController
   def set_follow
     if user_signed_in?
       @follow = Relationship.where(user_id: current_user.id)
+    end
+  end
+
+  def set_follower
+    if user_signed_in?
+      @follower = Relationship.where(follow_id: current_user.id)
     end
   end
 

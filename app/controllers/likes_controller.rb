@@ -1,8 +1,10 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_like, only: [:show]
-  before_action :set_tweet, except: [:show]
-  before_action :set_follow, only: [:show]
+  before_action :set_tweet, except: [:show, :index]
+  before_action :set_follow, only: [:show, :index]
+  before_action :set_follower, only: [:show, :index]
+
   before_action :like_where, only: [:create, :destroy, :index, :show]
 
   def create
@@ -14,6 +16,10 @@ class LikesController < ApplicationController
   end
 
   def index
+    users = Relationship.where(follow_id: current_user.id)
+    user = users.select(:user_id)
+    @users = User.where(id: user)
+    @likes = Like.where(user_id: current_user.id) if user_signed_in? # ユーザーがログイン状態なら自分がお気に入りに追加した投稿を取得する
   end
 
   def show
@@ -42,5 +48,12 @@ class LikesController < ApplicationController
       @follow = Relationship.where(user_id: current_user.id)
     end
   end
+
+  def set_follower
+    if user_signed_in?
+      @follower = Relationship.where(follow_id: current_user.id)
+    end
+  end
+
 
 end

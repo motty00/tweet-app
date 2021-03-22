@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   before_action :set_find, only: [:show, :edit]
   before_action :set_like, only: [:index, :show, :new, :edit]
   before_action :set_follow, only: [:index, :show, :edit]
+  before_action :set_follower, only: [:index, :show, :edit]
   before_action :move_to_index, except: [:index, :show, :edit, :update, :create, :destroy]
   before_action :move_index, only: [:edit]
 
@@ -47,6 +48,12 @@ class TweetsController < ApplicationController
   def set_follow
     if user_signed_in?
       @follow = Relationship.where(user_id: current_user.id)
+    end
+  end
+
+  def set_follower
+    if user_signed_in?
+      @follower = Relationship.where(follow_id: current_user.id)
     end
   end
 

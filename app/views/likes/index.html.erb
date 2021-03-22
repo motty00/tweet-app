@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <!--サイドバーの読み込み-->
+  <%= render "shared/side" %>
+  <div class="container">
+    <div class="follow-head">
+      <%= "#{current_user.nickname}のフォロワー一覧" %>
+    </div>
+
+    <div class="name-id">
+      <% @users.each do |user| %>
+        <div class="tweet-text">
+          <%= link_to "#{user.nickname}", user_path(user.id) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
