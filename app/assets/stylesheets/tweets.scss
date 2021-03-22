@@ -545,3 +545,19 @@ input[type="text"]:focus {
   font-size: 36px;
   border-bottom: 2px solid black;
 }
+
+.btn-follow {
+  margin-left: 30px;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-follow:active {
+  transform: translateY(4px);
+  border-bottom: none;
+
+}
