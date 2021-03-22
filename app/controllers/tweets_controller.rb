@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   before_action :find_tweet, only: [:update, :destroy]
   before_action :set_find, only: [:show, :edit]
   before_action :set_like, only: [:index, :show, :new, :edit]
+  before_action :set_follow, only: [:index, :show, :edit]
   before_action :move_to_index, except: [:index, :show, :edit, :update, :create, :destroy]
   before_action :move_index, only: [:edit]
 
@@ -42,6 +43,12 @@ class TweetsController < ApplicationController
   end
 
   private
+
+  def set_follow
+    if user_signed_in?
+      @follow = Relationship.where(user_id: current_user.id)
+    end
+  end
 
   def tweet_params
     params.permit(:text, :image).merge(user_id: current_user.id)

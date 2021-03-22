@@ -2,6 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_like, only: [:show]
   before_action :set_tweet, except: [:show]
+  before_action :set_follow, only: [:show]
   before_action :like_where, only: [:create, :destroy, :index, :show]
 
   def create
@@ -35,4 +36,11 @@ class LikesController < ApplicationController
   def set_tweet
     @tweet = Tweet.find(params[:id])
   end
+
+  def set_follow
+    if user_signed_in?
+      @follow = Relationship.where(user_id: current_user.id)
+    end
+  end
+
 end
