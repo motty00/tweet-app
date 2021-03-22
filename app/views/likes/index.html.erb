@@ -8,6 +8,7 @@
     <div class="name-id">
       <% @users.each do |user| %>
         <div class="tweet-text">
+          <!--フォローされているユーザー名を表示-->
           <li><%= link_to "#{user.nickname}", user_path(user.id) %></li>
         </div>
       <% end %>

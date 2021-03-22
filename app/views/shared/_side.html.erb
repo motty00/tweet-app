@@ -20,8 +20,10 @@
       <div class="follow">
         <% if user_signed_in? %>
           <%= link_to "フォロー", relationships_path %><br>
+          <!--フォローしている人数を表示-->
           <p><%= @follow.count %></p>
           <%= link_to "フォロワー", likes_path %><br>
+          <!--フォローされている人数を表示-->
           <p><%= @follower.count %></p>
           <%= link_to "お気に入り", like_path(current_user) %><br>
           <!--ログインユーザーが登録しているお気に入りの数を表示-->
