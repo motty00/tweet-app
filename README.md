@@ -66,7 +66,7 @@ https://tweet-app-34467.herokuapp.com/
 * チャットルームを作りチャットルームのパスワードを知っている人同士でコミュニケーションができる機能
 
 ## データベース設計
-* https://gyazo.com/b435c1944ee7e9ab09c2efa4627eda16
+* https://gyazo.com/61e9aa05f04c8b69bcdf67f98ab0da2c
 
 
 _____________________________________________________________________________________________________________________________________________
@@ -92,6 +92,10 @@ ________________________________________________________________________________
 - has_many :tweets
 - has_many :likes
 - has_many :comments
+- has_many :relationships
+- has_many :followings, through: :relationships, source: :follow
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+- has_many :followers, through: :reverse_of_relationships, source: :user
 
 
 
@@ -138,4 +142,17 @@ ________________________________________________________________________________
 
 - belongs_to :user
 - belongs_to :tweet
+
+## relationships テーブル
+
+| Column                 | Type          | Options                        |
+| -----------------------| ------------- | -------------------------------|
+| user_id                | integer       | foreign_key: true              |
+| follow_id              | integer       | foreign_key: {to_table: users} |
+
+
+### Association
+
+- belongs_to :user
+- belongs_to :follow, class_name: 'User'
 
