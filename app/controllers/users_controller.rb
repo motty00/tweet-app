@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :set_follow, only: [:show, :edit]
   before_action :set_follower, only: [:show, :edit]
 
-
   def show
     @user = User.find(params[:id]) # 特定のユーザー情報を取得
     @tweets = Tweet.all.order('created_at desc') # 全ての投稿を取得
@@ -26,15 +25,11 @@ class UsersController < ApplicationController
   private
 
   def set_follow
-    if user_signed_in?
-      @follow = Relationship.where(user_id: current_user.id)
-    end
+    @follow = Relationship.where(user_id: current_user.id) if user_signed_in?
   end
 
   def set_follower
-    if user_signed_in?
-      @follower = Relationship.where(follow_id: current_user.id)
-    end
+    @follower = Relationship.where(follow_id: current_user.id) if user_signed_in?
   end
 
   def user_params
